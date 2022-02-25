@@ -46,29 +46,32 @@
   };
 </script>
 
-  <meta name="description" content="若能美梦成真，何羡妖魔鬼神">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LWWm">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="力扣刷题笔记，回溯算法回溯算法是一种常用的解决问题的思想，其本质是不断“试错”，在正则表达式匹配、编译原理中的语法分析等实际的场景中都可以应用，还可以解决诸如数独、儿皇后、图的着色、全排列等数学问题。 其横版程序如下：  &lt;!--more--&gt;  123456789101112131415const visited &#x3D; &amp;#123;&amp;#125;function dfs(i) &amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣刷题笔记，回溯算法">
+<meta property="og:url" content="http://example.com/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="LWWm">
-<meta property="og:description" content="若能美梦成真，何羡妖魔鬼神">
+<meta property="og:description" content="力扣刷题笔记，回溯算法回溯算法是一种常用的解决问题的思想，其本质是不断“试错”，在正则表达式匹配、编译原理中的语法分析等实际的场景中都可以应用，还可以解决诸如数独、儿皇后、图的着色、全排列等数学问题。 其横版程序如下：  &lt;!--more--&gt;  123456789101112131415const visited &#x3D; &amp;#123;&amp;#125;function dfs(i) &amp;#123">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-25T11:34:10.000Z">
+<meta property="article:modified_time" content="2022-02-25T11:48:53.023Z">
 <meta property="article:author" content="LWWm">
+<meta property="article:tag" content="力扣刷题笔记, 算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>LWWm</title>
+  <title>力扣刷题笔记，回溯算法 | LWWm</title>
   
 
 
@@ -199,10 +202,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,8 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">力扣刷题笔记，回溯算法</a>
+          力扣刷题笔记，回溯算法
         </h1>
 
         <div class="post-meta">
@@ -256,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="力扣刷题笔记，回溯算法"><a href="#力扣刷题笔记，回溯算法" class="headerlink" title="力扣刷题笔记，回溯算法"></a>力扣刷题笔记，回溯算法</h1><pre><code>回溯算法是一种常用的解决问题的思想，其本质是不断“试错”，在正则表达式匹配、编译原理中的语法分析等实际的场景中都可以应用，还可以解决诸如数独、儿皇后、图的着色、全排列等数学问题。
+        <h1 id="力扣刷题笔记，回溯算法"><a href="#力扣刷题笔记，回溯算法" class="headerlink" title="力扣刷题笔记，回溯算法"></a>力扣刷题笔记，回溯算法</h1><pre><code>回溯算法是一种常用的解决问题的思想，其本质是不断“试错”，在正则表达式匹配、编译原理中的语法分析等实际的场景中都可以应用，还可以解决诸如数独、儿皇后、图的着色、全排列等数学问题。
 其横版程序如下：
 
 &lt;!--more--&gt;
@@ -279,262 +281,47 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    List&lt;String&gt; ans;</span><br><span class="line">    boolean[] visited;</span><br><span class="line">    public List&lt;String&gt; letterCasePermutation(String s) &#123;</span><br><span class="line">        ans = new ArrayList&lt;&gt;();</span><br><span class="line">        visited = new boolean[s.length()];</span><br><span class="line">        dfs(s, new StringBuffer(), 0);</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(String s, StringBuffer sb, int index) &#123;</span><br><span class="line">        if (index == s.length()) &#123;</span><br><span class="line">            String string = sb.toString();</span><br><span class="line">            ans.add(string);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        char ch = s.charAt(index);</span><br><span class="line">        if (Character.isDigit(ch)) &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">            dfs(s, sb, index + 1);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">            dfs(s, sb, index + 1);</span><br><span class="line">            sb.deleteCharAt(sb.length() - 1);</span><br><span class="line">            sb.append(change(ch));</span><br><span class="line">            dfs(s, sb, index + 1);</span><br><span class="line">        &#125;</span><br><span class="line">        sb.deleteCharAt(sb.length() - 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public char change(char c) &#123;</span><br><span class="line">        if (c &gt;= 65 &amp;&amp; c &lt;= 90) &#123;</span><br><span class="line">            return (char) (c + 32);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return (char) (c - 32);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LWWm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" title="力扣刷题笔记，回溯算法">http://example.com/2022/02/25/力扣刷题笔记，回溯算法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0-%E7%AE%97%E6%B3%95/" rel="tag"># 力扣刷题笔记, 算法</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="LWWm">
-      <meta itemprop="description" content="若能美梦成真，何羡妖魔鬼神">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWWm">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/" class="post-title-link" itemprop="url">力扣刷题笔记，8. 字符串整数转换</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-22 21:03:21" itemprop="dateCreated datePublished" datetime="2022-02-22T21:03:21+08:00">2022-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-25 19:43:33" itemprop="dateModified" datetime="2022-02-25T19:43:33+08:00">2022-02-25</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="针对力扣第8题的思路和程序，重点学习JAVA实现自动机的写法。"><a href="#针对力扣第8题的思路和程序，重点学习JAVA实现自动机的写法。" class="headerlink" title="针对力扣第8题的思路和程序，重点学习JAVA实现自动机的写法。"></a>针对力扣第8题的思路和程序，重点学习JAVA实现自动机的写法。</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/" rel="prev" title="力扣刷题笔记，8. 字符串整数转换">
+      <i class="fa fa-chevron-left"></i> 力扣刷题笔记，8. 字符串整数转换
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/my-first-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="LWWm">
-      <meta itemprop="description" content="若能美梦成真，何羡妖魔鬼神">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWWm">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/22/my-first-blog/" class="post-title-link" itemprop="url">my first blog</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-02-22 14:55:26 / 修改时间：16:16:32" itemprop="dateCreated datePublished" datetime="2022-02-22T14:55:26+08:00">2022-02-22</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/02/22/my-first-blog/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/22/my-first-blog/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>搭建个人博客的完整过程：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/22/my-first-blog/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="LWWm">
-      <meta itemprop="description" content="若能美梦成真，何羡妖魔鬼神">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWWm">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-02-22 14:27:19 / 修改时间：16:06:07" itemprop="dateCreated datePublished" datetime="2022-02-22T14:27:19+08:00">2022-02-22</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/02/22/hello-world/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/22/hello-world/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/22/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
@@ -542,12 +329,10 @@
 
   </div>
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -594,6 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">力扣刷题笔记，回溯算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#39-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C"><span class="nav-number">1.1.</span> <span class="nav-text">39. 组合总和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#47-%E5%85%A8%E6%8E%92%E5%88%972"><span class="nav-number">1.2.</span> <span class="nav-text">47. 全排列2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="nav-number">1.3.</span> <span class="nav-text">131. 分割回文串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#638-%E5%A4%A7%E7%A4%BC%E5%8C%85"><span class="nav-number">1.4.</span> <span class="nav-text">638. 大礼包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#784-%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%85%A8%E6%8E%92%E5%88%97"><span class="nav-number">1.5.</span> <span class="nav-text">784. 字母大小全排列</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

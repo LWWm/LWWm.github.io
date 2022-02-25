@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-02-25</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8-%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-25</lastmod>
   </url>
   <url>
     <loc>http://example.com/2022/02/22/my-first-blog/</loc>
