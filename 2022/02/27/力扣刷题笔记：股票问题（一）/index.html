@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://example.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="股票问题（一）121.买卖股票的最佳时机应当这样理解本题：  只要某天的股票价格高于买入的价格，那么就可以考虑卖出股票，如果以后有更好的方案则改变方案；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣刷题笔记：股票问题（一）">
+<meta property="og:url" content="http://example.com/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="LWWm">
+<meta property="og:description" content="股票问题（一）121.买卖股票的最佳时机应当这样理解本题：  只要某天的股票价格高于买入的价格，那么就可以考虑卖出股票，如果以后有更好的方案则改变方案；">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-27T06:22:30.000Z">
+<meta property="article:modified_time" content="2022-02-27T06:25:21.479Z">
+<meta property="article:author" content="LWWm">
+<meta property="article:tag" content="力扣刷题笔记">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>力扣刷题笔记：股票问题（一） | LWWm</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="LWWm" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LWWm</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="LWWm">
+      <meta itemprop="description" content="若能美梦成真，何羡妖魔鬼神">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWWm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          力扣刷题笔记：股票问题（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-27 14:22:30 / 修改时间：14:25:21" itemprop="dateCreated datePublished" datetime="2022-02-27T14:22:30+08:00">2022-02-27</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="股票问题（一）"><a href="#股票问题（一）" class="headerlink" title="股票问题（一）"></a>股票问题（一）</h1><h2 id="121-买卖股票的最佳时机"><a href="#121-买卖股票的最佳时机" class="headerlink" title="121.买卖股票的最佳时机"></a>121.买卖股票的最佳时机</h2><p>应当这样理解本题：</p>
+<ol>
+<li>只要某天的股票价格高于买入的价格，那么就可以考虑卖出股票，如果以后有更好的方案则改变方案；<span id="more"></span></li>
+<li>假如我打算在某天卖出股票，那么一定当股票是在其价格最低点买入的时候，利润才是最大的；</li>
+<li>如果在今天之前的价格都高于当前价格，则考虑今天才买入，如果未来卖出，一定比之前任意一天买入的利润要高。<br>综上，任意一天需要考虑的应当是两个值：之前的最低价格和当前价格，当当前价格高于最低价格时考虑卖出，否则更新最低价格。<br>第一天的时候只能买入，不可卖出。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int profit = 0; // 最大利润</span><br><span class="line">        int minValue = prices[0];</span><br><span class="line">        for (int i : prices) &#123;</span><br><span class="line">            if (i &lt;= minValue) &#123;    //第一天的价格等于最低价，修改最低价格，所以下标可以从0开始</span><br><span class="line">                minValue = i;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                profit = Math.max(profit, i - minValue);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="122-买卖股票的最佳时机Ⅱ"><a href="#122-买卖股票的最佳时机Ⅱ" class="headerlink" title="122. 买卖股票的最佳时机Ⅱ"></a>122. 买卖股票的最佳时机Ⅱ</h2><h2 id="714-买卖股票的最佳时机含手续费"><a href="#714-买卖股票的最佳时机含手续费" class="headerlink" title="714. 买卖股票的最佳时机含手续费"></a>714. 买卖股票的最佳时机含手续费</h2><p>这两个题完全可以合并在一起，因为思路是一样的，<code>122</code>题只是<code>714</code>题中手续费为<code>0</code>的特殊情况。</p>
+<h4 id="1-贪心算法"><a href="#1-贪心算法" class="headerlink" title="1.贪心算法"></a>1.贪心算法</h4><p>此处贪心算法的本质是允许后悔，即只要当前的价格可以产生利润，那就卖出，如果之后发现有更好的利润的时候就改变卖出的时机，换取更多的利润。重点在于，由于每次卖出之后允许后悔，即相当于每次卖出之后可以立即以当天的股票价格再买入股票（无需手续费），如果某天的股价加上手续费还低于手中股票的购入的费用，则可以重新购入股票，注意当天的股价应当包括手续费；如果某天的股价（包括手续费）等于买入价格，则不作处理，因为可能意味着多一次的手续费。</p>
+<p>对于“由于每次卖出之后允许后悔，即相当于每次卖出之后可以立即以当天的股票价格再买入股票（无需手续费）” ，可以这样理解 ，假如手续费是fee，买入时股价为a，则买入价格是a+fee，假设未来股价b&gt;a+fee,c&gt;b，则显然a+fee的价格买入，c的价格时卖出利润最多，观察如下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c - (a+fee) = (c - b) + (b - (a+fee))</span><br></pre></td></tr></table></figure>
+<p>等式右边第一项即表示用b的价格（不含手续费）再次买入的收益。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//122. 不含手续费</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int ans = 0;</span><br><span class="line">        int buy = prices[0];        // 假设第一天买入</span><br><span class="line">        for (int i = 1; i &lt; prices.length; i++) &#123;</span><br><span class="line">            if (prices[i] &lt; buy) &#123;  // 当前的价格更低，如果换成今天买入，未来的收益更高（后悔，重新买入）</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            &#125; else if (prices[i] &gt; buy) &#123;   // 当前的价格卖出有利润，立刻卖出，未来可以后悔</span><br><span class="line">                ans += prices[i] - buy;</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 上述程序可以简化</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int ans = 0;</span><br><span class="line">        for (int i = 1; i &lt; prices.length; i++) &#123;</span><br><span class="line">            ans += Math.max(0, prices[i] - prices[i - 1]);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//714. 考虑手续费</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices, int fee) &#123;</span><br><span class="line">        int ans = 0;</span><br><span class="line">        int buy = prices[0] + fee;        // 假设第一天买入</span><br><span class="line">        for (int i = 1; i &lt; prices.length; i++) &#123;</span><br><span class="line">            if (prices[i] + fee &lt; buy) &#123;  // 当前的价格更低，如果换成今天买入，未来的收益更高（后悔，重新买入）</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            &#125; else if (prices[i] &gt; buy) &#123;   // 当前的价格卖出有利润，立刻卖出，未来可以后悔</span><br><span class="line">                ans += prices[i] - buy;</span><br><span class="line">                buy = prices[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="2-动态规划"><a href="#2-动态规划" class="headerlink" title="2. 动态规划"></a>2. 动态规划</h4><p>也可以使用动态规划的方法求解，即一共做n次决策，每次决策是买入还是卖出或者是等待（不买入或不卖出），每次决策的结果对应一种状态。每种状态分别包含手中有股票和没有股票时的最大利润。初始状态，只能考虑买入股票（手中有股票）或者不买入（手中没有股票），对应的利润值分别是<code>-price[0]</code>和<code>0</code>；以后的每一天状态如下 ：</p>
+<ul>
+<li>手中有股票 ：前一天手中没有股票并在今天买入（如果有手续费则支付手续费）；前一天手中有股票并且今天没有卖出。</li>
+<li>手中没有股票：前一天手中有股票并在今天卖出；前一天手中没有股票并且今天没有买入。<br>如果用一个<code>n*2</code>的数组<code>dp</code>表示状态表，<code>dp[i][0]</code>表示手中没有股票时的利润，<code>dp[i][1]</code>表示手中有股票时的利润，则状态转移过程如下 ：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][0]=max\&#123;dp[i−1][0],dp[i−1][1]+prices[i]−fee \&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][1]=max\&#123;dp[i−1][1],dp[i−1][0]−prices[i] \&#125;</span><br></pre></td></tr></table></figure>
+当然也可以在股票买入的时候支付手续费，对应初始状态和状态转移方程如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[0][0] = 0;</span><br><span class="line">dp[0][1] = -prices[0] - fee;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][0]=max\&#123;dp[i−1][0],dp[i−1][1]+prices[i] \&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][1]=max\&#123;dp[i−1][1],dp[i−1][0]−prices[i]−fee \&#125;</span><br></pre></td></tr></table></figure>
+为了节省空间，考虑到每天的状态只与前一天的状态有关，所以只动态地维护前一天的状态即可。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 未考虑手续费的程序</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int n = prices.length;</span><br><span class="line">        int dp0 = 0, dp1 = -prices[0];</span><br><span class="line">        for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">            int newDp0 = Math.max(dp0, dp1 + prices[i]);</span><br><span class="line">            int newDp1 = Math.max(dp1, dp0 - prices[i]);</span><br><span class="line">            dp0 = newDp0;</span><br><span class="line">            dp1 = newDp1;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="309-最佳买股票时机含冷冻期"><a href="#309-最佳买股票时机含冷冻期" class="headerlink" title="309. 最佳买股票时机含冷冻期"></a>309. 最佳买股票时机含冷冻期</h2>这里依然采用动态规划的方法求解，与前一题不同的是，第<code>i</code>的利润情况分为三种状态：<br>dp[i][0]: 手上持有股票的最大利润；</li>
+<li>手中的股票是前一天剩下的且今天没有买入；</li>
+<li>手中的股票是今天买入的，此时的前提是昨天没有卖出（不可从dp[i-1][1]转来）；<br>dp[i][1]: 手上不持有股票，今天卖出了股票（i+1天是冷冻期）的最大利润；</li>
+<li>需要前一天手中有股票，即从dp[i-1][0]状态转来<br>dp[i][2]: 手上不持有股票，之前某天卖出股票（i+1天非冷冻期）的最大利润；</li>
+<li>前一天手中没有股票且今天也没有买入。<br>状态转移方程如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][0]=max(f[i−1][0],f[i−1][2]−prices[i])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][1]=f[i−1][0]+prices[i]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][2]=max(f[i−1][1],f[i−1][2])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        if (prices.length == 0) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        int n = prices.length;</span><br><span class="line">        int[][] dp = new int[n][3];</span><br><span class="line">        f[0][0] = -prices[0];</span><br><span class="line">        for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][2] - prices[i]);</span><br><span class="line">            dp[i][1] = dp[i - 1][0] + prices[i];</span><br><span class="line">            dp[i][2] = Math.max(dp[i - 1][1], dp[i - 1][2]);</span><br><span class="line">        &#125;</span><br><span class="line">        return Math.max(dp[n - 1][1], dp[n - 1][2]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LWWm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" title="力扣刷题笔记：股票问题（一）">http://example.com/2022/02/27/力扣刷题笔记：股票问题（一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="tag"># 力扣刷题笔记</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" rel="prev" title="力扣刷题笔记，回溯算法">
+      <i class="fa fa-chevron-left"></i> 力扣刷题笔记，回溯算法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">股票问题（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">121.买卖股票的最佳时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E2%85%A1"><span class="nav-number">1.2.</span> <span class="nav-text">122. 买卖股票的最佳时机Ⅱ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#714-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E5%90%AB%E6%89%8B%E7%BB%AD%E8%B4%B9"><span class="nav-number">1.3.</span> <span class="nav-text">714. 买卖股票的最佳时机含手续费</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.贪心算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2. 动态规划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F"><span class="nav-number">1.4.</span> <span class="nav-text">309. 最佳买股票时机含冷冻期</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LWWm"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LWWm</p>
+  <div class="site-description" itemprop="description">若能美梦成真，何羡妖魔鬼神</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LWWm" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LWWm" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LWWm</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'OGFL4wP8lX2ntYFw8I8fX3WC-gzGzoHsz',
+      appKey: 'iTCoHh5qKPvUDuz0bBUzVBIS',
+      placeholder: "Just go go",
+      avatar: 'robohash',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
