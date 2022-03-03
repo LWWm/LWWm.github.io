@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-27T06:25:21.479Z</updated>
+  <updated>2022-03-03T07:54:34.791Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决mysql一段时间后不能启动</title>
+    <link href="http://example.com/2022/03/03/%E8%A7%A3%E5%86%B3mysql%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%90%8E%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8/"/>
+    <id>http://example.com/2022/03/03/%E8%A7%A3%E5%86%B3mysql%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%90%8E%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8/</id>
+    <published>2022-03-03T07:20:22.000Z</published>
+    <updated>2022-03-03T07:54:34.791Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>同样的问题其实已经发生过好几次，就是本地计算机上的mysql服务器突然无法启动，在控制面板中尝试启动服务的时候报错：“本地计算上的mysql服务启动后停止。某些服务在未由其他服务或程序启动时将自动停止。”<br>以前曾经“解决”过这个问题，加引号是因为每次解决问题都是以数据丢失为代价，但是随着学习的积累，已有的数据真的已经丢不起了！！（之前曾经尝试直接将data文件夹里的数据库文件备份出来，等到mysql可以启动之后在放回去，呵，天真！！幼稚！！）<br>这次就来彻底解决这个问题！</p><span id="more"></span><p>因为我已经解决了问题，又不方便复现问题，所以只记录解决问题过程中的命令及方法，而没有过程的截图，其实也不需要。</p><h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><h3 id="一：备份数据"><a href="#一：备份数据" class="headerlink" title="一：备份数据"></a>一：备份数据</h3><ol><li>在DOS窗口（管理员）中尝试登录mysql，发现报错</li><li>该窗口继续输入：mysqld –console</li><li>这个时候保持当前cmd容器打开，同时打开另一个DOS窗口（管理员）</li><li>在新打开的窗口中重新尝试登录，正常输入密码即可进入</li></ol><p>其实以后可以一直使用这种方式登录，但是显然太过麻烦，所以这一步的目的不是为了登录成功，而是为了备份出数据库文件。<br>有相应的命令可以实现这一功能，但是我使用了navicat工具，因为这样更加方便一些 。毕竟在以上步骤之后，navicat也暂时可以使用了，当然前提是不关闭第一个打开的DOS窗口。现在将备份好的sql文件保存起来后面有用。</p><h3 id="二：修复mysql"><a href="#二：修复mysql" class="headerlink" title="二：修复mysql"></a>二：修复mysql</h3><p>这里就不再需要上面的窗口保持打开了。</p><ol><li>用管理员身份启动DOS窗口</li><li>输入命令：“mysqld –remove mysql ” ，移除mysql服务，注意自已的mysql的服务名字，可以在控制面板中查看到，比如我的电脑中有mysql和mysql80两个服务，要分别停掉</li><li>清空”mysql&#x2F;data”文件夹中的所有文件</li><li>注册服务，使用命令“ mysqld -install”</li><li>初始化服务，使用命令“mysqld -initialize”(这一过程中data文件夹中的内容初始化。)</li><li>这时到data文件夹中发现有一个后缀名为.err的文件，打开之后发现其中包含新的密码用于登录</li><li>使用.err文件中的密码登录，然后修改密码，以后就可以使用新的密码正常使用Mysql。下面就是恢复数据了。</li></ol><h3 id="三：恢复数据"><a href="#三：恢复数据" class="headerlink" title="三：恢复数据"></a>三：恢复数据</h3><p>这里我还是使用的navicat工具，先创建同名的数据库，然后右击数据库，选择运行sql文件，就可以恢复之前的数据库。</p><p>至此，就解决了mysql不能启动的问题，并且数据得到了保留。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;问题：&quot;&gt;&lt;a href=&quot;#问题：&quot; class=&quot;headerlink&quot; title=&quot;问题：&quot;&gt;&lt;/a&gt;问题：&lt;/h2&gt;&lt;p&gt;同样的问题其实已经发生过好几次，就是本地计算机上的mysql服务器突然无法启动，在控制面板中尝试启动服务的时候报错：“本地计算上的mysql服务启动后停止。某些服务在未由其他服务或程序启动时将自动停止。”&lt;br&gt;以前曾经“解决”过这个问题，加引号是因为每次解决问题都是以数据丢失为代价，但是随着学习的积累，已有的数据真的已经丢不起了！！（之前曾经尝试直接将data文件夹里的数据库文件备份出来，等到mysql可以启动之后在放回去，呵，天真！！幼稚！！）&lt;br&gt;这次就来彻底解决这个问题！&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
+    
+    <category term="数据库" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣刷题笔记：股票问题（一）</title>
