@@ -46,17 +46,22 @@
   };
 </script>
 
-  <meta name="description" content="若能美梦成真，何羡妖魔鬼神">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LWWm">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="现在各个网站普遍使用的登录认证方式是使用短信认证登录，并且在用户与服务器交互的过程中这部分功能需要被多次调用，所以在项目中不可避免地要包括这一部分，学习之后，在此记录其流程：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用短信登录和注册的流程">
+<meta property="og:url" content="http://example.com/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="LWWm">
-<meta property="og:description" content="若能美梦成真，何羡妖魔鬼神">
+<meta property="og:description" content="现在各个网站普遍使用的登录认证方式是使用短信认证登录，并且在用户与服务器交互的过程中这部分功能需要被多次调用，所以在项目中不可避免地要包括这一部分，学习之后，在此记录其流程：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4089d942fb334fa2a0c508c67dafd1fa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAcXFfNDU0ODM4NDY=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2022-03-15T00:27:33.000Z">
+<meta property="article:modified_time" content="2022-03-15T00:28:30.822Z">
 <meta property="article:author" content="LWWm">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/4089d942fb334fa2a0c508c67dafd1fa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAcXFfNDU0ODM4NDY=,size_20,color_FFFFFF,t_70,g_se,x_16">
 
-<link rel="canonical" href="http://example.com/archives/">
+<link rel="canonical" href="http://example.com/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -64,11 +69,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | LWWm</title>
+  <title>使用短信登录和注册的流程 | LWWm</title>
   
 
 
@@ -198,173 +203,145 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="LWWm">
+      <meta itemprop="description" content="若能美梦成真，何羡妖魔鬼神">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWWm">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用短信登录和注册的流程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-15 08:27:33 / 修改时间：08:28:30" itemprop="dateCreated datePublished" datetime="2022-03-15T08:27:33+08:00">2022-03-15</time>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 7 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2022</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-03-15T08:27:33+08:00"
-              content="2022-03-15">
-          03-15
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">使用短信登录和注册的流程</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-03-03T15:20:22+08:00"
-              content="2022-03-03">
-          03-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/03/03/%E8%A7%A3%E5%86%B3mysql%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%90%8E%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8/" itemprop="url">
-            <span itemprop="name">解决mysql一段时间后不能启动</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-27T14:22:30+08:00"
-              content="2022-02-27">
-          02-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/02/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">
-            <span itemprop="name">力扣刷题笔记：股票问题（一）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-25T19:34:10+08:00"
-              content="2022-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/02/25/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" itemprop="url">
-            <span itemprop="name">力扣刷题笔记，回溯算法</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-22T21:03:21+08:00"
-              content="2022-02-22">
-          02-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/02/22/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%9A8.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/" itemprop="url">
-            <span itemprop="name">力扣刷题笔记，8. 字符串整数转换</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-22T14:55:26+08:00"
-              content="2022-02-22">
-          02-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/02/22/my-first-blog/" itemprop="url">
-            <span itemprop="name">my first blog</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-22T14:27:19+08:00"
-              content="2022-02-22">
-          02-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2022/02/22/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <p>现在各个网站普遍使用的登录认证方式是使用短信认证登录，并且在用户与服务器交互的过程中这部分功能需要被多次调用，所以在项目中不可避免地要包括这一部分，学习之后，在此记录其流程：</p>
+<span id="more"></span>
+<p>实现短信认证登录可以有两种方式：基于session实现和基于redis实现。</p>
+<h3 id="基于session实现的过程如下："><a href="#基于session实现的过程如下：" class="headerlink" title="基于session实现的过程如下："></a>基于session实现的过程如下：</h3><p><img src="https://img-blog.csdnimg.cn/4089d942fb334fa2a0c508c67dafd1fa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAcXFfNDU0ODM4NDY=,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>如上图是黑马程序员课程中的一张图，描述了短信登录的过程，这一过程分为三部分分别实现：</p>
+<p>1. 发送短信验证码：</p>
+<ul>
+<li>用户在手机号输入框中输入一个手机号，然后点击发送验证码</li>
+<li>系统校验这个手机号是否是一个正确的手机号<ul>
+<li>如果这个手机号不合法，则需要用户重新输入</li>
+<li>如果合法，则系统根据规则生成一个验证码，并且将这个验证码存储到session域中，同时以短信形式发送给用户提供的手机号</li>
+</ul>
+</li>
+</ul>
+<p>2. 短信验证码登录、注册</p>
+<ul>
+<li>用户收到验证码之后，输入验证码并点击登录</li>
+<li>系统校验手机号（再次校验防止被修改）和验证码</li>
+<li>如果验证码和session域中的的不一致，认证失败，重新验证；</li>
+<li>如果验证成功进行到下一步</li>
+<li>用户根据手机号登录，有可能这个手机号是第一次使用，即系统中不存在对应的用户，则创建一个新的用户，初始化必要的信息，保存到数据库中</li>
+<li>此时数据库中存在一个对应的用户，将这个用户信息保存到session域中以后使用。</li>
+</ul>
+<p>3. 校验登录状态</p>
+<ul>
+<li>当用户发送请求的时候，首先判断用户是否登录，即session中是否存在用户信息，如果存在，说明用户已经登录，否则拦截请求并跳转到登录页面。使用拦截器实现。</li>
+</ul>
+<h3 id="基于redis实现："><a href="#基于redis实现：" class="headerlink" title="基于redis实现："></a>基于redis实现：</h3><p>基于session实现存在问题是：当有多个服务器的时候，session共享困难。一种解决的办法是基于redis实现。</p>
+<p>基于redis实现的过程与基于session的过程基本一致，不同的地方在于信息不是存储在session中，而是redis中。另外一个不同点在于，由于使用redis，所以数据是不同的用户都可以访问到的，而在session中，则只有当前用户可以访问到；所以数据在redis中的存储必须为每组数据赋值为一个独一无二的键值，并且在验证登录成功之后需要将这个键值返回给客户端。</p>
 
     </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LWWm
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/03/15/%E4%BD%BF%E7%94%A8%E7%9F%AD%E4%BF%A1%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E7%9A%84%E6%B5%81%E7%A8%8B/" title="使用短信登录和注册的流程">http://example.com/2022/03/15/使用短信登录和注册的流程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/03/%E8%A7%A3%E5%86%B3mysql%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%90%8E%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8/" rel="prev" title="解决mysql一段时间后不能启动">
+      <i class="fa fa-chevron-left"></i> 解决mysql一段时间后不能启动
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -411,6 +388,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Esession%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%BF%87%E7%A8%8B%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">基于session实现的过程如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Eredis%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">基于redis实现：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
